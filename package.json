@@ -4,10 +4,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "verify": "tsx ../versionary/src/cli/index.ts verify",
-    "plan": "tsx ../versionary/src/cli/index.ts plan",
-    "changelog": "tsx ../versionary/src/cli/index.ts changelog",
-    "pr": "tsx ../versionary/src/cli/index.ts pr"
+    "verify": "versionary verify",
+    "plan": "versionary plan",
+    "changelog": "versionary changelog",
+    "pr": "versionary pr"
   },
   "devDependencies": {
     "tsx": "^4.20.6",
