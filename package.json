@@ -1,0 +1,15 @@
+{
+  "name": "versionary-test-repo",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "verify": "tsx ../versionary/src/cli/index.ts verify",
+    "plan": "tsx ../versionary/src/cli/index.ts plan",
+    "changelog": "tsx ../versionary/src/cli/index.ts changelog",
+    "pr": "tsx ../versionary/src/cli/index.ts pr"
+  },
+  "devDependencies": {
+    "tsx": "^4.20.6"
+  }
+}

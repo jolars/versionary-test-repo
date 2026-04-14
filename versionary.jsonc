@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "mode": "simple",
+  "simple": {
+    "versionFile": "version.txt",
+    "changelogFile": "CHANGELOG.md"
+  }
+}
