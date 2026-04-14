@@ -84,6 +84,7 @@ jobs:
               --base main \
               --head "$BRANCH" \
               --title "$TITLE" \
-              --body "$BODY" \
-              --label release
+              --body "$BODY"
           fi
+
+          gh pr edit "$BRANCH" --add-label release || true
