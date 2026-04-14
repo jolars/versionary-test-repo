@@ -11,13 +11,24 @@ permissions:
 jobs:
   release:
     runs-on: ubuntu-latest
-    if: ${{ startsWith(github.event.head_commit.message || '', 'chore(release): v') }}
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
+      - name: Gate release commit
+        id: gate
+        run: |
+          MSG="${{ github.event.head_commit.message }}"
+          if echo "$MSG" | grep -Eq '^chore\(release\): v'; then
+            echo "should_release=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "Not a release commit, skipping."
+            echo "should_release=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Extract version
+        if: steps.gate.outputs.should_release == 'true'
         id: version
         run: |
           VERSION="$(cat version.txt | tr -d '\n')"
@@ -25,6 +36,7 @@ jobs:
           echo "tag=v$VERSION" >> "$GITHUB_OUTPUT"
 
       - name: Create tag if missing
+        if: steps.gate.outputs.should_release == 'true'
         env:
           TAG: ${{ steps.version.outputs.tag }}
         run: |
@@ -36,6 +48,7 @@ jobs:
           git push origin "$TAG"
 
       - name: Publish GitHub Release
+        if: steps.gate.outputs.should_release == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
           TAG: ${{ steps.version.outputs.tag }}
