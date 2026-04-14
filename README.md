@@ -11,3 +11,5 @@ Test repository for trying Versionary simple mode.
   `chore(release): v*`, creates a git tag and GitHub Release.
 
 ## A Bug Fix!
+
+## Major Change! Breaking!
