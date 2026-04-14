@@ -10,6 +10,7 @@
     "pr": "tsx ../versionary/src/cli/index.ts pr"
   },
   "devDependencies": {
-    "tsx": "^4.20.6"
+    "tsx": "^4.20.6",
+    "versionary": "github:jolars/versionary#main"
   }
 }
