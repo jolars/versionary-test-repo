@@ -1,3 +1,9 @@
+# Changelog
+
+## 1.0.0 - 2026-04-14
+
+- refactor!: break some stuff (6bf17a7)
+
 ## 0.1.1 - 2026-04-14
 
 - ci: fix label in workflow (ed91168)
